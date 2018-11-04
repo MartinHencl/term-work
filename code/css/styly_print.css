@@ -1,0 +1,6 @@
+  /* CSS pro tisk - vypnute zobrazeni nepotrebnych oddilu webu */
+  
+  nav, aside, header, footer {
+     display: none;
+     
+      }
