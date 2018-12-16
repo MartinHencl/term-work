@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="JIZDY_VOZID" directorySegmentName="seg_0" id="D2A5AD02-0FEC-663D-9F60-BFD92EA59344">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 21:23:41 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<sourcePk>FD7F04F5-7C1E-1C4B-1A74-7EB62C0885BE</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>9F219DE3-BE08-09EE-4020-29C9B69A3616</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>06F8ADB0-0E75-2723-2275-1A73A2702041</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E89C8098-B6F8-2621-3D4C-74295DE333B2" name="TYP_VOZU">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:24:48 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_TYP_VOZU" id="19BDB192-5DAF-8B74-07CB-36750C61C524">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:24:55 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TYP_VOZU" id="695A45A4-1327-F69B-A49E-A38C7328FBA5">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:25:09 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A482FD30-6942-2A0B-72A4-5D292D4E6C0A" name="TYP_VOZU PK">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 21:28:04 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>19BDB192-5DAF-8B74-07CB-36750C61C524</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

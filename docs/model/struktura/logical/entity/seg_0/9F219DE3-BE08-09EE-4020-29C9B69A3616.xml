@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9F219DE3-BE08-09EE-4020-29C9B69A3616" name="VOZIDLA">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:22:53 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_VOZIDLA" id="293CD0F0-2064-A64B-1514-19D0F0150AFD">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:22:59 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SPZ" id="9FAFC37A-9DEE-5FC5-4504-28BDF898846C">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:23:08 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PORIZENO" id="16792D4B-ACDB-706D-8693-D7E6BADCE0D9">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:28:03 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAJETO_PUVODNI" id="49AD5879-3720-E255-C4F4-924D53F7ECD1">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 21:58:50 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_TYP_VOZU" id="C5110D92-2EFA-0B64-6935-867DE5FBA57B">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 21:28:07 UTC</createdTime>
+<generatorID>6244E8A3-0D68-F13E-6119-D2F24E82A1B1</generatorID>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<referedAttribute>19BDB192-5DAF-8B74-07CB-36750C61C524</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FD7F04F5-7C1E-1C4B-1A74-7EB62C0885BE" name="VOZIDLA PK">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 21:27:49 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>293CD0F0-2064-A64B-1514-19D0F0150AFD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="struktura" id="4FE40DC2-233E-6BB1-CBE4-17E992B79E5F" version="3.5">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 20:07:14 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>4FE40DC2-233E-6BB1-CBE4-17E992B79E5F</designId>
+</OSDM_Design>

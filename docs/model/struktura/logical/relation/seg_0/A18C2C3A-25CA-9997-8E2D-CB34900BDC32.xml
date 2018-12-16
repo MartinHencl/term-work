@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="UZIV_ROLE" directorySegmentName="seg_0" id="A18C2C3A-25CA-9997-8E2D-CB34900BDC32">
+<createdBy>Error404</createdBy>
+<createdTime>2018-12-16 21:16:22 UTC</createdTime>
+<ownerDesignName>struktura</ownerDesignName>
+<engineerTo>
+<item key="047266BE-E3F4-4636-96ED-D3CE6BCB054C" value="true"/>
+</engineerTo>
+<sourcePk>EE354FD7-86E2-6E1F-746E-3C8CB693486C</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>365B00DE-9484-CD4A-8F7C-052147117EC7</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>4D29ECEB-3F3B-E078-B920-58B258A956EF</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
