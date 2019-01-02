@@ -9,7 +9,7 @@
     }
 
     main {
-     width: 1450px;
+     max-width: 100em;
      min-height: 900px;
      margin: 2em auto;
      border: 1px solid gray;
@@ -36,21 +36,45 @@
     }
      
     nav {
-     float: left;
-     width: 200px;
-     padding: 20px;
-     margin: 0px;
-     text-align: center;
-
+        background-color: #61ACC1;;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin: 0px;
+        text-align: center;
      }
 
+    nav a {
+        color: #000000;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    nav a:hover {
+        background-color: white;
+    }
+    nav a:active{
+        background-color: white;
+    }
+
     section {
-     margin-left: 340px;    /* okraj praveho panelu je dan souctem sirky leveho panelu a jeho vnitrnich mezer */
+     /*margin-left: 340px;    /* okraj praveho panelu je dan souctem sirky leveho panelu a jeho vnitrnich mezer */
      padding: 20px;
-     border-left: solid 1px gray;
+     /*border-left: solid 1px gray;*/
      text-align: justify;
 
      }
+
+    #login-top {
+        width: 100%;
+        text-align: right;
+    }
+    #login-top a {
+        color: #000000;
+        padding-right: 50px;
+        font-size: 17px;
+    }
 
     footer {
      padding: 20px;
