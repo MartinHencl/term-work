@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="2DD2A612-089E-03BB-59C7-7FB6495BF24E" mainViewID="9294557E-F61C-554E-D2A8-F679F549AD37">
-<createdBy>Error404</createdBy>
-<createdTime>2018-12-16 20:07:14 UTC</createdTime>
-<ownerDesignName>struktura</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</LogicalDesign>
