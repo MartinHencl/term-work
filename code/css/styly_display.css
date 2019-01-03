@@ -1,3 +1,7 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
     body {
      background-color: #E8DD29;
      background: linear-gradient(135deg, #61ACC1, white 65%, #61ACC1);   /* pozadi s sikmym linearnim gradientem */
@@ -59,12 +63,26 @@
     }
 
     section {
-     /*margin-left: 340px;    /* okraj praveho panelu je dan souctem sirky leveho panelu a jeho vnitrnich mezer */
-     padding: 20px;
-     /*border-left: solid 1px gray;*/
-     text-align: justify;
+        margin: 40px;
+        margin-bottom: 80px;
+        border: solid 1px gray;
+        text-align: justify;
 
      }
+
+    section article .form-wrapper {
+        border: solid 1px black;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    section article .form-wrapper .form-group {
+        margin-bottom: 15px;
+    }
+
+    section article .form-wrapper .form-control {
+        display: block;
+    }
 
     #login-top {
         width: 100%;
@@ -77,11 +95,13 @@
     }
 
     footer {
-     padding: 20px;
-     text-align: center;
-     border-top: solid 1px gray;
-     clear: both;                  /* vypnuti obtekani leveho panelu s navigaci */
-
+        text-align: right;
+        border-top: solid 1px black;
+        max-width: 99em;
+        width: 100%;
+        bottom: 30px;
+        position: absolute;
+        height: 30px;
      }
 
      li {
@@ -93,4 +113,3 @@
      {
       display: none;
      }
-

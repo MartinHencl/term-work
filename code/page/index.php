@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="cs">
@@ -13,7 +16,17 @@
 <main>
 
     <div id="login-top">
-        <a href="login.php">Příhlásit se</a>
+        <?php
+            require_once("../class/prihlaseni_do_db.php");
+        ?>
+        <?php
+        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+            echo 'Přihlášen jako ' . $_SESSION["JMENO"] . ' ' . $_SESSION["PRIJMENI"] . ' | ';
+            echo '<a href="odhlaseni.php">Odhlásit se</a>';
+        } else {
+            echo '<a href="prihlaseni.php">Příhlásit se</a>';
+        }
+        ?>
     </div>
     <header>
         <div class="container" >
@@ -43,6 +56,9 @@
     </section>
 
     <footer>
+        <?php
+            echo $prihlaseni_k_databazi_zprava;
+        ?>
     </footer>
 
 </main>
