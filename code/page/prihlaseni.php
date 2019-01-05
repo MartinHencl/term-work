@@ -13,7 +13,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 require_once("../class/prihlaseni_do_db.php");
 
 // Define variables and initialize with empty values
-$username = $password = "";
+$username = $password = $id = $hashed_password = $jmeno = $prijmeni = $role = "";
 $username_err = $password_err = "";
 
 // Processing form data when form is submitted
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (empty($username_err) && empty($password_err)) {
         // Prepare a select statement
-        $sql = "SELECT ID_UZIVATEL, EMAIL, HESLO, JMENO, PRIJMENI FROM UZIVATEL WHERE EMAIL = :username";
+        $sql = "SELECT ID_UZIVATEL, EMAIL, HESLO, JMENO, PRIJMENI, ROLE FROM UZIVATEL WHERE EMAIL = :username";
 
         if ($stmt = $pdo->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $hashed_password = $row["HESLO"];
                         $jmeno = $row["JMENO"];
                         $prijmeni = $row["PRIJMENI"];
+                        $role = $row["ROLE"];
 
                         if (password_verify($password, $hashed_password)) {
                             // Password is correct, so start a new session
@@ -66,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["EMAIL"] = $username;
                             $_SESSION["JMENO"] = $jmeno;
                             $_SESSION["PRIJMENI"] = $prijmeni;
+                            $_SESSION["ROLE"] = $role;
 
                             // Redirect user to welcome page
                             header("location: index.php");
@@ -105,15 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div id="login-top">
         <?php
-        require_once("../class/prihlaseni_do_db.php");
-        ?>
-        <?php
-        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-            echo 'Přihlášen jako ' . $_SESSION["JMENO"] . ' ' . $_SESSION["PRIJMENI"] . ' | ';
-            echo '<a href="odhlaseni.php">Odhlásit se</a>';
-        } else {
-            echo '<a href="prihlaseni.php">Příhlásit se</a>';
-        }
+        require_once ("./stejne_casti/login_top.php");
         ?>
     </div>
     <header>
@@ -134,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-wrapper">
             <h2>Přihlášení</h2>
                 <p>Formulář pro přihlášení:</p>
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <form accept-charset="utf-8" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                         <label>Uživatelské jméno (email): </label>
                         <input type="email" name="username" class="form-control" value="<?php echo $username; ?>">
@@ -157,7 +151,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <footer>
         <?php
-        echo $prihlaseni_k_databazi_zprava;
+        if (isset($prihlaseni_k_databazi_zprava)) {
+            echo $prihlaseni_k_databazi_zprava;
+            unset($prihlaseni_k_databazi_zprava);
+        }
         ?>
     </footer>
 

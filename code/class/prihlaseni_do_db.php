@@ -10,11 +10,12 @@
     define('DB_DATABASE', 'term_db');
     define('BASE_URL', parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
     define('CURRENT_URL', $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING']);
+    define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"] . parse_url($_SERVER["REQUEST_URI"]));
 
     //$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
 try{
-    $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_DATABASE, DB_USERNAME, DB_PASSWORD);
+    $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_DATABASE . ";charset=utf8", DB_USERNAME, DB_PASSWORD );
     // Set the PDO error mode to exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e){
@@ -23,7 +24,7 @@ try{
 
 if(!$pdo) {
     //echo "Connection error: " . mysqli_error();
-    $prihlaseni_k_databazi_zprava = "Connection error: " . mysqli_error();
+    $prihlaseni_k_databazi_zprava = "Connection error: "; // . mysqli_error();
     exit();
 } else {
     //echo "Prihlaseni OK ";

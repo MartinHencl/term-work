@@ -7,7 +7,7 @@
 
 <head>
     <?php
-        require_once("head.php");
+    require_once("head.php");
     ?>
 </head>
 
@@ -17,15 +17,7 @@
 
     <div id="login-top">
         <?php
-            require_once("../class/prihlaseni_do_db.php");
-        ?>
-        <?php
-        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-            echo 'Přihlášen jako ' . $_SESSION["JMENO"] . ' ' . $_SESSION["PRIJMENI"] . ' | ';
-            echo '<a href="odhlaseni.php">Odhlásit se</a>';
-        } else {
-            echo '<a href="prihlaseni.php">Příhlásit se</a>';
-        }
+            require_once ("./stejne_casti/login_top.php");
         ?>
     </div>
     <header>
@@ -48,6 +40,13 @@
     <section>
 
         <article>
+            <?php
+            //phpinfo();
+            echo BASE_URL . "<br>";
+            echo CURRENT_URL . "<br>";
+            echo ROOT_PATH . "<br>";
+            ?>
+
         </article>
 
         <article>
@@ -57,7 +56,10 @@
 
     <footer>
         <?php
-            echo $prihlaseni_k_databazi_zprava;
+            if (isset($prihlaseni_k_databazi_zprava)) {
+                echo $prihlaseni_k_databazi_zprava;
+                unset($prihlaseni_k_databazi_zprava);
+            }
         ?>
     </footer>
 

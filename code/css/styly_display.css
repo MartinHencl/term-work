@@ -84,6 +84,18 @@ html {
         display: block;
     }
 
+    section article .form-wrapper .help-block {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #CC0000;
+    }
+
+    th, tr, td{
+        border-bottom: 1px solid black;
+    }
+
+
     #login-top {
         width: 100%;
         text-align: right;

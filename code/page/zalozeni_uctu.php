@@ -130,15 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div id="login-top">
         <?php
-        require_once("../class/prihlaseni_do_db.php");
-        ?>
-        <?php
-        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-            echo 'Přihlášen jako ' . $_SESSION["JMENO"] . ' ' . $_SESSION["PRIJMENI"] . ' | ';
-            echo '<a href="odhlaseni.php">Odhlásit se</a>';
-        } else {
-            echo '<a href="prihlaseni.php">Příhlásit se</a>';
-        }
+        require_once ("./stejne_casti/login_top.php");
         ?>
     </div>
     <header>
@@ -159,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-wrapper">
                 <h2>Registrace</h2>
                 <p>Formulář pro založení uživatelského účtu.</p>
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <form accept-charset="utf-8" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                         <label>Přihlašovací email<span style="color: red;">*</span>: </label>
                         <input type="email" name="username" class="form-control" value="<?php echo $username; ?>">
@@ -202,7 +194,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <footer>
         <?php
-        echo $prihlaseni_k_databazi_zprava;
+        if (isset($prihlaseni_k_databazi_zprava)) {
+            echo $prihlaseni_k_databazi_zprava;
+            unset($prihlaseni_k_databazi_zprava);
+        }
         ?>
     </footer>
 </main>
