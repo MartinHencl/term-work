@@ -1,8 +1,30 @@
 <?php
 session_start();
 require_once("../class/Uzivatel.php");
-
 require_once("../class/prihlaseni_do_db.php");
+
+if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
+    //echo "admin \n";
+    if(isset($_GET["id_uzivatel"])) {
+        $sql = "DELETE FROM UZIVATEL WHERE ID_UZIVATEL = :userid";
+        if ($stmt = $pdo->prepare($sql)) {
+            $stmt->bindParam(":userid", $param_userid, PDO::PARAM_INT);
+
+            $param_userid = trim($_GET["id_uzivatel"]);
+
+            if ($stmt->execute()) {
+                //header("seznam_uzivatelu.php");
+                //echo ('Mazani OK' . "\n");
+            } else {
+                echo ('Nepovedlo se smazat uzivatele' . "\n");
+            }
+            // Close statement
+            unset($stmt);
+        } else {
+            echo 'Nepovedlo se smazat uzivatele';
+        }
+    }
+}
 
 $sql = "SELECT ID_UZIVATEL, EMAIL, JMENO, PRIJMENI, ROLE, TELEFON FROM UZIVATEL";
 
@@ -22,7 +44,8 @@ if ($stmt = $pdo->prepare($sql)) {
         }
     }
 }
-
+// Close connection
+unset($pdo);
 ?>
     <!DOCTYPE html>
 
@@ -57,7 +80,12 @@ if ($stmt = $pdo->prepare($sql)) {
 
         <section>
             <article>
-                NOV7 UCET
+                <fieldset style="margin: 10px;">
+                    <legend>Přidat nového uživatele</legend>
+                <form>
+                    <button type="submit" formaction="zalozeni_uctu.php">Nový účet</button>
+                </form>
+                </fieldset>
             </article>
 
             <article>
@@ -83,6 +111,13 @@ if ($stmt = $pdo->prepare($sql)) {
                             echo '<td>' . $uzivatel->getPrijmeni() . '</td>' . "\n";
                             echo '<td>' . $uzivatel->getRole() . '</td>' . "\n";
                             echo '<td>' . $uzivatel->getTelefon() . '</td>' . "\n";
+                            echo '<td>';
+                                echo '<form accept-charset="utf-8" method="get">' . "\n";
+                                echo '<input type="hidden" name="id_uzivatel" value="' . $uzivatel->getIdUzivatel() . '">';
+                                echo '<button type="submit" formaction="zalozeni_uctu.php" >Upravit</button>' . "\n";
+                                echo '<button type="submit" formaction="seznam_uzivatelu.php" >Smazat</button>' . "\n";
+                                echo '</form>' . "\n";
+                            echo '</td>' . "\n";
                             echo '</tr>' . "\n";
                         }
                         unset($uzivatel); // break the reference with the last element
