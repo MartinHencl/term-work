@@ -9,10 +9,14 @@ require_once("../class/prihlaseni_do_db.php");
 $username = $password = $confirm_password = $jmeno = $telefon = "";
 $username_err = $password_err = $confirm_password_err = $jmeno_err = $heslo_err = "";
 $editace = false;
+$infoZpravy = "";
 
-if (isset($_SESSION["EDITACE"]) && $_SESSION["EDITACE"] === 1) {
+if (isset($_SESSION["EDITACE"]) && $_SESSION["EDITACE"] === 1 && isset($_GET["id_uzivatel"])) {
     $editace = true;
-    echo "editace \n";
+    $infoZpravy = $infoZpravy . " editace";
+} else {
+    $editace = false;
+    $infoZpravy = $infoZpravy . " zadna editace";
 }
 if ($_SESSION["ROLE"] == "administrator") {
     if (isset($_GET["id_uzivatel"])) {
@@ -213,7 +217,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <nav>
         <?php
-        require_once("menu.php");
+        require_once("./stejne_casti/menu.php");
         ?>
     </nav>
 

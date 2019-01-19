@@ -28,7 +28,7 @@
 
     <nav>
         <?php
-            require_once("menu.php");
+            require_once("./stejne_casti/menu.php");
         ?>
     </nav>
 

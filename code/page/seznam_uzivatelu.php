@@ -5,7 +5,7 @@ require_once("../class/prihlaseni_do_db.php");
 
 if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
     //echo "admin \n";
-    if(isset($_GET["id_uzivatel"])) {
+    if (isset($_GET["id_uzivatel"])) {
         $sql = "DELETE FROM UZIVATEL WHERE ID_UZIVATEL = :userid";
         if ($stmt = $pdo->prepare($sql)) {
             $stmt->bindParam(":userid", $param_userid, PDO::PARAM_INT);
@@ -16,7 +16,7 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
                 //header("seznam_uzivatelu.php");
                 //echo ('Mazani OK' . "\n");
             } else {
-                echo ('Nepovedlo se smazat uzivatele' . "\n");
+                echo('Nepovedlo se smazat uzivatele' . "\n");
             }
             // Close statement
             unset($stmt);
@@ -24,29 +24,28 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
             echo 'Nepovedlo se smazat uzivatele';
         }
     }
-}
 
-$sql = "SELECT ID_UZIVATEL, EMAIL, JMENO, PRIJMENI, ROLE, TELEFON FROM UZIVATEL";
+    $sql = "SELECT ID_UZIVATEL, EMAIL, JMENO, PRIJMENI, ROLE, TELEFON FROM UZIVATEL";
 
-if ($stmt = $pdo->prepare($sql)) {
-    // Attempt to execute the prepared statement
-    if ($stmt->execute()) {
-        $pocet_radku = $stmt->rowCount();
-        if ($pocet_radku > 0) {
-            $pole_uzivatelu = array();
-            for ($i = 0; $i < $pocet_radku; $i++) {
-                $row = $stmt->fetch();
-                $uzivatel = Uzivatel::vytvorUzivatele($row["ID_UZIVATEL"], $row["EMAIL"], $row["JMENO"], $row["PRIJMENI"], $row["ROLE"], $row["TELEFON"]);
-                //print_r($uzivatel);
-                $pole_uzivatelu[$i] = $uzivatel;
+    if ($stmt = $pdo->prepare($sql)) {
+        // Attempt to execute the prepared statement
+        if ($stmt->execute()) {
+            $pocet_radku = $stmt->rowCount();
+            if ($pocet_radku > 0) {
+                $pole_uzivatelu = array();
+                for ($i = 0; $i < $pocet_radku; $i++) {
+                    $row = $stmt->fetch();
+                    $uzivatel = Uzivatel::vytvorUzivatele($row["ID_UZIVATEL"], $row["EMAIL"], $row["JMENO"], $row["PRIJMENI"], $row["ROLE"], $row["TELEFON"]);
+                    //print_r($uzivatel);
+                    $pole_uzivatelu[$i] = $uzivatel;
+                }
+                unset($i, $pocet_radku, $stmt, $row); // break the reference with the last element
             }
-            unset($i, $pocet_radku, $stmt, $row); // break the reference with the last element
         }
     }
-}
 // Close connection
-unset($pdo);
-?>
+    unset($pdo);
+    ?>
     <!DOCTYPE html>
 
     <html lang="cs">
@@ -74,7 +73,7 @@ unset($pdo);
 
         <nav>
             <?php
-            require_once("menu.php");
+            require_once("./stejne_casti/menu.php");
             ?>
         </nav>
 
@@ -82,9 +81,9 @@ unset($pdo);
             <article>
                 <fieldset style="margin: 10px;">
                     <legend>Přidat nového uživatele</legend>
-                <form>
-                    <button type="submit" formaction="zalozeni_uctu.php">Nový účet</button>
-                </form>
+                    <form>
+                        <button type="submit" formaction="zalozeni_uctu.php">Nový účet</button>
+                    </form>
                 </fieldset>
             </article>
 
@@ -112,11 +111,11 @@ unset($pdo);
                             echo '<td>' . $uzivatel->getRole() . '</td>' . "\n";
                             echo '<td>' . $uzivatel->getTelefon() . '</td>' . "\n";
                             echo '<td>';
-                                echo '<form accept-charset="utf-8" method="get">' . "\n";
-                                echo '<input type="hidden" name="id_uzivatel" value="' . $uzivatel->getIdUzivatel() . '">';
-                                echo '<button type="submit" formaction="zalozeni_uctu.php" >Upravit</button>' . "\n";
-                                echo '<button type="submit" formaction="seznam_uzivatelu.php" >Smazat</button>' . "\n";
-                                echo '</form>' . "\n";
+                            echo '<form accept-charset="utf-8" method="get">' . "\n";
+                            echo '<input type="hidden" name="id_uzivatel" value="' . $uzivatel->getIdUzivatel() . '">';
+                            echo '<button type="submit" formaction="zalozeni_uctu.php" >Upravit</button>' . "\n";
+                            echo '<button type="submit" formaction="seznam_uzivatelu.php" >Smazat</button>' . "\n";
+                            echo '</form>' . "\n";
                             echo '</td>' . "\n";
                             echo '</tr>' . "\n";
                         }
@@ -143,6 +142,7 @@ unset($pdo);
     </body>
 
     </html>
-<?php
-require_once("../class/odhlaseni_od_db.php")
+    <?php
+    require_once("../class/odhlaseni_od_db.php");
+    }
 ?>
