@@ -7,7 +7,7 @@
 
 <head>
     <?php
-    require_once("head.php");
+    require_once("./stejne_casti/head.php");
     ?>
 </head>
 

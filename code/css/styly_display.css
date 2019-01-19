@@ -91,7 +91,15 @@ html {
         color: #CC0000;
     }
 
-    th, tr, td{
+    section article .form-wrapper input {
+        width: 200px;
+    }
+
+    section article .form-wrapper select {
+        width: 200px;
+    }
+
+th, tr, td{
         border-bottom: 1px solid black;
     }
 
@@ -125,3 +133,5 @@ html {
      {
       display: none;
      }
+
+

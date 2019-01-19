@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="cs">
 <head>
     <?php
-    require_once("head.php");
+    require_once("./stejne_casti/head.php");
     ?>
 </head>
 <body>

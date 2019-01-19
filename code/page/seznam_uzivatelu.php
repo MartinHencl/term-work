@@ -26,7 +26,7 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
     }
 
     $sql = "SELECT ID_UZIVATEL, EMAIL, JMENO, PRIJMENI, ROLE, TELEFON FROM UZIVATEL";
-
+    $pole_uzivatelu = array();
     if ($stmt = $pdo->prepare($sql)) {
         // Attempt to execute the prepared statement
         if ($stmt->execute()) {
@@ -52,7 +52,7 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
 
     <head>
         <?php
-        require_once("head.php");
+        require_once("./stejne_casti/head.php");
         ?>
     </head>
 

@@ -7,7 +7,7 @@ session_start();
 
 <head>
     <?php
-    require_once("head.php");
+    require_once("./stejne_casti/head.php");
     ?>
 </head>
 
@@ -41,7 +41,7 @@ session_start();
                 <fieldset style="margin: 10px;">
                     <legend>Přidat nové vozidlo</legend>
                     <form>
-                        <button type="submit" formaction="zalozeni_vozidla.php">Vložit nový vůz</button>
+                        <button type="submit" formaction="<?php echo htmlspecialchars('zalozeni_vozidla.php'); ?>">Vložit nový vůz</button>
                     </form>
                 </fieldset>
 
