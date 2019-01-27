@@ -1,9 +1,11 @@
 <?php
 session_start();
+require_once("../class/Znacka.php");
+require_once("../class/Vybaveni.php");
 require_once("../class/prihlaseni_do_db.php");
 
 $znacka_err = $jmeno_err = $spz_err = $puvodni_najeto_err = "";
-$znacka = $jmeno_vozu = $spz = $puvodni_najeto = $spotreba = $dojezd = $foto_vozu = $vybaveni = "";
+$znacka = $jmeno_vozu = $spz = $puvodni_najeto = $spotreba = $dojezd = $vybaveni = $foto_vozu = "";
 ?>
 
 <?php
@@ -15,11 +17,31 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
         if ($stmt->execute()) {
             $pocet_radku = $stmt->rowCount();
             if ($pocet_radku > 0) {
-                $row = $stmt->fetch();
-                ZALOZI TRIDU ZNACKY A TU PLNIT
+                for ($i = 0; $i < $pocet_radku; $i++) {
+                    $row = $stmt->fetch();
+                    $pole_znacek[$i] = Znacka::vytvorZnacku($row["ID_ZNACKA_VOZU"], $row{"ZNACKA"});
+                }
+                unset($i, $row, $stmt, $sql);
             }
         }
     }
+
+    $sql = "SELECT * FROM VYBAVENI";
+    $pole_vybaveni = array();
+    if ($stmt = $pdo->prepare($sql)) {
+        if ($stmt->execute()) {
+            $pocet_radku = $stmt->rowCount();
+            if ($pocet_radku > 0) {
+                for ($i = 0; $i < $pocet_radku; $i++) {
+                    $row = $stmt->fetch();
+                    $pole_vybaveni[$i] = Vybaveni::vytvorVybaveni($row["ID_VYBAVENI"], $row{"VYBAVENI"});
+                }
+                unset($i, $row, $stmt, $sql);
+            }
+        }
+    }
+
+
     ?>
     <!DOCTYPE html>
 
@@ -62,6 +84,14 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
                         <div class="form-group <?php echo (!empty($znacka_err)) ? 'has-error' : ''; ?>">
                             <label>Značka<span style="color: red;">*</span>: </label> <br>
                             <select name="znacky_vozy" style="width: 170px">
+                                <?php
+                                if (!empty($pole_znacek)) {
+                                    foreach ($pole_znacek as $item) {
+                                        echo '<option value="' . $item->getIdZnacky() . '">' . $item->getZnacka() . '</option>';
+                                    }
+                                    unset($item);
+                                }
+                                ?>
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
                                 <option value="opel">Opel</option>
@@ -99,14 +129,24 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
                             <input type="file" name="foto_vozu" class="form-control" value="<?php echo $foto_vozu; ?>">
                         </div>
                         <div class="form-group">
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
                             <label>Vybavení: </label> <br>
-                            <select name="vybaveni" style="width: 170px" size="2" multiple>
-                                <option value="diesel">Diesel</option>
-                                <option value="benzin">Benzín</option>
-                            </select>
-                            <label>Pro nové vybavení: </label>
-                            <input type="text" name="vybaveni_nove" value="<?php echo $vybaveni; ?>" placeholder="Napište nové vybavení">
-
+                            <input type="text" name="vybaveni_nove" id="vybaveni_nove" list="vybaveni-list" value="<?php echo $vybaveni; ?>" placeholder="Napište nové vybavení">
+                            <datalist id="vybaveni-list">
+                                <?php
+                                if (!empty($pole_vybaveni)) {
+                                    foreach ($pole_vybaveni as $item) {
+                                        echo '<option value="' . $item->getNazev() . '"> \n"';
+                                    }
+                                    unset($item);
+                                }
+                                ?>
+                                <option value="Benzin">
+                                <option value="Diesel">
+                                <option value="Airbag">
+                            </datalist>
+                            <label>Pro více vybavení: čárka a mezera</label>
                         </div>
                         <button type="submit" formaction="<?php echo htmlspecialchars('zalozeni_vozidla.php'); ?>">Vytvořit nový vůz</button>
                         <button type="reset">Reset</button>
@@ -129,6 +169,43 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
         </footer>
 
     </main>
+
+    <script>
+        var datalist = jQuery('datalist');
+        var options = jQuery('datalist option');
+        var optionsarray = jQuery.map(options ,function(option) {
+            return option.value;
+        });
+        var input = jQuery('input[list]');
+        var inputcommas = (input.val().match(/,/g)||[]).length;
+        var separator = ',';
+
+        function filldatalist(prefix) {
+            if (input.val().indexOf(separator) > -1 && options.length > 0) {
+                datalist.empty();
+                for (i=0; i < optionsarray.length; i++ ) {
+                    if (prefix.indexOf(optionsarray[i]) < 0 ) {
+                        datalist.append('<option value="'+prefix+optionsarray[i]+'">');
+                    }
+                }
+            }
+        }
+        input.bind("change paste keyup",function() {
+            var inputtrim = input.val().replace(/^\s+|\s+$/g, "");
+            //console.log(inputtrim);
+            var currentcommas = (input.val().match(/,/g)||[]).length;
+            //console.log(currentcommas);
+            if (inputtrim != input.val()) {
+                if (inputcommas != currentcommas) {
+                    var lsIndex = inputtrim.lastIndexOf(separator);
+                    var str = (lsIndex != -1) ? inputtrim.substr(0, lsIndex)+", " : "";
+                    filldatalist(str);
+                    inputcommas = currentcommas;
+                }
+                input.val(inputtrim);
+            }
+        });
+    </script>
     </body>
 
     </html>

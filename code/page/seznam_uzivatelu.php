@@ -102,24 +102,26 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
                         </tr>
                         <?php
                         $uzivatel = new Uzivatel();
-                        foreach ($pole_uzivatelu as $uzivatel) {
-                            echo '<tr>' . "\n";
-                            echo '<td>' . $uzivatel->getIdUzivatel() . '</td>' . "\n";
-                            echo '<td>' . $uzivatel->getEmail() . '</td>' . "\n";
-                            echo '<td>' . $uzivatel->getJmeno() . '</td>' . "\n";
-                            echo '<td>' . $uzivatel->getPrijmeni() . '</td>' . "\n";
-                            echo '<td>' . $uzivatel->getRole() . '</td>' . "\n";
-                            echo '<td>' . $uzivatel->getTelefon() . '</td>' . "\n";
-                            echo '<td>';
-                            echo '<form accept-charset="utf-8" method="get">' . "\n";
-                            echo '<input type="hidden" name="id_uzivatel" value="' . $uzivatel->getIdUzivatel() . '">';
-                            echo '<button type="submit" formaction="zalozeni_uctu.php" >Upravit</button>' . "\n";
-                            echo '<button type="submit" formaction="seznam_uzivatelu.php" >Smazat</button>' . "\n";
-                            echo '</form>' . "\n";
-                            echo '</td>' . "\n";
-                            echo '</tr>' . "\n";
+                        if (!empty($pole_uzivatelu)) {
+                            foreach ($pole_uzivatelu as $uzivatel) {
+                                echo '<tr>' . "\n";
+                                echo '<td>' . $uzivatel->getIdUzivatel() . '</td>' . "\n";
+                                echo '<td>' . $uzivatel->getEmail() . '</td>' . "\n";
+                                echo '<td>' . $uzivatel->getJmeno() . '</td>' . "\n";
+                                echo '<td>' . $uzivatel->getPrijmeni() . '</td>' . "\n";
+                                echo '<td>' . $uzivatel->getRole() . '</td>' . "\n";
+                                echo '<td>' . $uzivatel->getTelefon() . '</td>' . "\n";
+                                echo '<td>';
+                                echo '<form accept-charset="utf-8" method="get">' . "\n";
+                                echo '<input type="hidden" name="id_uzivatel" value="' . $uzivatel->getIdUzivatel() . '">';
+                                echo '<button type="submit" formaction="zalozeni_uctu.php" >Upravit</button>' . "\n";
+                                echo '<button type="submit" formaction="seznam_uzivatelu.php" >Smazat</button>' . "\n";
+                                echo '</form>' . "\n";
+                                echo '</td>' . "\n";
+                                echo '</tr>' . "\n";
+                            }
+                            unset($uzivatel); // break the reference with the last element
                         }
-                        unset($uzivatel); // break the reference with the last element
                         ?>
                     </table>
                 </fieldset>
