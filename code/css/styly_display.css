@@ -70,6 +70,10 @@ html {
 
      }
 
+    section h2 {
+        padding: 0 0 0 30px;
+    }
+
     section article .form-wrapper {
         border: solid 1px black;
         margin: 20px;
@@ -97,6 +101,40 @@ html {
 
     section article .form-wrapper select {
         width: 200px;
+    }
+
+    section article .form-wrapper .form-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    section article .form-wrapper .label_checkbox {
+        border:1px solid #ccc;
+        padding:5px;
+        display:block;
+        width: max-content;
+        min-width: 300px;
+        max-width: 400px;
+    }
+
+    section article .form-wrapper .label_checkbox:hover {
+        background:#eee;
+        cursor:pointer;
+    }
+
+    section article .form-wrapper .label_checkbox input {
+        width: 15px;
+        float: left;
+    }
+
+    section article .form-wrapper .label_checkbox .vybaveni_hodnota_label {
+        float: right;
+    }
+    section article .form-wrapper .label_checkbox .vybaveni_hodnota {
+        float: right;
+        width: 50px;
+        margin: 0 0 0 10px;
     }
 
 th, tr, td{

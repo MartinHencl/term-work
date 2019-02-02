@@ -45,6 +45,8 @@
             echo BASE_URL . "<br>";
             echo CURRENT_URL . "<br>";
             echo ROOT_PATH . "<br>";
+            echo DOC_ROOT . "<br>";
+            echo PDF_UPLOADS . "<br>";
             ?>
 
         </article>

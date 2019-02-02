@@ -4,6 +4,7 @@ class Vybaveni
 {
     var $idVybaveni;
     var $nazev;
+    var $hodnota;
 
     public function __construct()
     {
@@ -35,7 +36,7 @@ class Vybaveni
     /**
      * @return mixed
      */
-    public function getNazev()
+    public function getNazevVybaveni()
     {
         return $this->nazev;
     }
@@ -43,9 +44,25 @@ class Vybaveni
     /**
      * @param mixed $nazev
      */
-    public function setNazev($nazev)
+    public function setNazevVybaveni($nazev)
     {
         $this->nazev = $nazev;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHodnota()
+    {
+        return $this->hodnota;
+    }
+
+    /**
+     * @param mixed $hodnota
+     */
+    public function setHodnota($hodnota)
+    {
+        $this->hodnota = $hodnota;
     }
 
 }

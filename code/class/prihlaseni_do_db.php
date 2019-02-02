@@ -11,6 +11,8 @@
     define('BASE_URL', parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
     define('CURRENT_URL', $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING']);
     define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"] . parse_url($_SERVER["REQUEST_URI"]));
+    define("DOC_ROOT", $_SERVER['DOCUMENT_ROOT']."/");
+    define("PDF_UPLOADS", DOC_ROOT."uploads/");
 
     //$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 

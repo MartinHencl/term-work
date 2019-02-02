@@ -1,6 +1,6 @@
 <?php
     echo "<a href='../page/index.php'>Úvodní stránka</a>\n";
-    echo "<a href='../page/nabidka.php'>Nabídka automobilů</a>\n";
+    echo "<a href='../page/nabidka_vsech_vozu.php'>Nabídka automobilů</a>\n";
     //echo "<a href='../index.php?vyber=3'>Rezervace &amp; cena</a>\n";
     //echo "<a href='index.php?vyber=3'>Podmínky</a>\n";
     //echo "<a href='index.php?vyber=3'>Kontakt a pobočky</a>\n";
