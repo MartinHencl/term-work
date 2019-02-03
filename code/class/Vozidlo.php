@@ -7,6 +7,7 @@ class Vozidlo
     var $cena;
     var $puvodniNajeto;
     var $znacka_vozu_id_znacka_vozu;
+    var $znacka_vozu_string;
 
     /**
      * Vozidlo constructor.
@@ -46,7 +47,7 @@ class Vozidlo
     /**
      * @return mixed
      */
-    public function getJmeno()
+    public function getJmenoVozu()
     {
         return $this->jmeno;
     }
@@ -54,7 +55,7 @@ class Vozidlo
     /**
      * @param mixed $jmeno
      */
-    public function setJmeno($jmeno)
+    public function setJmenoVozu($jmeno)
     {
         $this->jmeno = $jmeno;
     }
@@ -105,6 +106,22 @@ class Vozidlo
     public function setZnackaVozuIdZnackaVozu($znacka_vozu_id_znacka_vozu)
     {
         $this->znacka_vozu_id_znacka_vozu = $znacka_vozu_id_znacka_vozu;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZnackaVozuString()
+    {
+        return $this->znacka_vozu_string;
+    }
+
+    /**
+     * @param mixed $znacka_vozu_string
+     */
+    public function setZnackaVozuString($znacka_vozu_string)
+    {
+        $this->znacka_vozu_string = $znacka_vozu_string;
     }
 
 }

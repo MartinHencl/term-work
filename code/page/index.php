@@ -32,11 +32,6 @@
         ?>
     </nav>
 
-    <!-- Boční sloupec
-    <aside>
-    </aside>
-    -->
-
     <section>
 
         <article>

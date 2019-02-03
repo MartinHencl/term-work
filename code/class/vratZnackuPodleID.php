@@ -1,6 +1,6 @@
 <?php
 
-function vratZnackuVozuPodleVozu($pdo, $idZnacka)
+function vratZnackuVozuPodleIdZnacky($pdo, $idZnacka)
 {
     $sql = "SELECT ZNACKA FROM ZNACKA_VOZU WHERE ID_ZNACKA_VOZU = :id_znacka";
     if ($stmt = $pdo->prepare($sql)) {

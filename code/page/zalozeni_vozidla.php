@@ -10,9 +10,9 @@ $pole_vybaveni_vybranych = array();
 
 if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
 
-    require_once ("../class/nacti_vsechny_znacky_vozu.php");
+    require_once("../class/nacti_vsechny_znacky_vozu.php");
 
-    require_once ("../class/nacti_vsechna_vybaveni.php");
+    require_once("../class/nacti_vsechna_vybaveni.php");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty(trim($_POST["znacky_vozy"]))) {
@@ -35,19 +35,7 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
         } else {
             $puvodni_najeto = trim($_POST["puvodni_najeto"]);
         }
-        /*if (!empty(trim($_POST["foto_vozu"]))) {
 
-                        $foto_vozu = $_POST["foto_vozu"];
-                        $name = $_FILES['foto_vozu']['name'];
-                        $size = $_FILES['foto_vozu']['size'];
-                        $type = $_FILES['foto_vozu']['type'];
-                        $tmp_name = $_FILES['foto_vozu']['tmp_name'];
-
-                        $dir = "../image/autoID";
-                        if (!file_exists($dir) || !is_dir($dir)) {
-                            mkdir($dir);
-                        }
-                    }*/
         if (!empty($_POST["vybaveni_checklist"])) {
             foreach ($_POST["vybaveni_checklist"] as $item_checked) {
                 if (!empty(trim($_POST["vybaveni_" . $item_checked]))) {
@@ -76,7 +64,7 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
                 if ($stmt->execute()) {
                     $last_id = $pdo->lastInsertId();
                     if (!empty($pole_vybaveni_vybranych)) {
-                        foreach ($pole_vybaveni_vybranych as $key=>$item) {
+                        foreach ($pole_vybaveni_vybranych as $key => $item) {
                             $sql = "INSERT INTO VOZIDLO_HAS_VYBAVENI (VOZIDLO_ID_VOZIDLA, VYBAVENI_ID_VYBAVENI, HODNOTA) VALUES (:idVozidla, :idVybaveni, :hodnota)";
                             if ($stmt = $pdo->prepare($sql)) {
                                 $stmt->bindParam(":idVozidla", $param_idVozidla, PDO::PARAM_INT);
@@ -93,6 +81,7 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
                             }
                         }
                     }
+                    require_once("../class/obrazek_manipulace.php");
                     header('Location: http://localhost/term-work/code/page/nabidka_vsech_vozu.php');
                     exit;
                 } else {
@@ -103,40 +92,40 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
     }
 }
 ?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
-    <html lang="cs">
+<html lang="cs">
 
-    <head>
+<head>
+    <?php
+    require_once("./stejne_casti/head.php");
+    ?>
+</head>
+
+<body>
+
+<main>
+
+    <div id="login-top">
         <?php
-        require_once("./stejne_casti/head.php");
+        require_once("./stejne_casti/login_top.php");
         ?>
-    </head>
-
-    <body>
-
-    <main>
-
-        <div id="login-top">
-            <?php
-            require_once("./stejne_casti/login_top.php");
-            ?>
+    </div>
+    <header>
+        <div class="container">
+            <img src="../image/mercedes-benz-c-class-vehicle-model-banner.jpg" alt="Banner auto">    <!--  https://www.mercedes-benz-newmarket.ca/about-us/mercedes-benz-c-class-vehicle-model-banner/ -->
         </div>
-        <header>
-            <div class="container">
-                <img src="../image/mercedes-benz-c-class-vehicle-model-banner.jpg" alt="Banner auto">    <!--  https://www.mercedes-benz-newmarket.ca/about-us/mercedes-benz-c-class-vehicle-model-banner/ -->
-            </div>
-        </header>
+    </header>
 
-        <nav>
-            <?php
-            require_once("./stejne_casti/menu.php");
-            ?>
-        </nav>
+    <nav>
+        <?php
+        require_once("./stejne_casti/menu.php");
+        ?>
+    </nav>
 
-        <section>
-            <?php
-            if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
+    <section>
+        <?php
+        if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
             ?>
             <article>
                 <div class="form-wrapper">
@@ -172,6 +161,11 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
                             <input type="number" name="puvodni_najeto" class="form-control" value="<?php echo $puvodni_najeto; ?>" placeholder="0">
                             <span class="help-block"><?php echo $puvodni_najeto_err; ?></span>
                         </div>
+                        <div class="form-group <?php echo (!empty($foto_err)) ? 'has-error' : ''; ?>">
+                            <label>Foto vozu: </label>
+                            <input type="file" name="foto_vozu" class="form-control" accept="image/*">
+                            <span class="help-block"><?php echo $foto_err; ?></span>
+                        </div>
                         <div class="form-group">
                             <label>Vybavení: </label> <br>
                             <?php
@@ -194,21 +188,21 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
 
             <article>
             </article>
-                    <?php
-                }
-                ?>
-        </section>
-
-        <footer>
             <?php
-            if (isset($prihlaseni_k_databazi_zprava)) {
-                echo $prihlaseni_k_databazi_zprava;
-                unset($prihlaseni_k_databazi_zprava);
-            }
-            ?>
-        </footer>
+        }
+        ?>
+    </section>
 
-    </main>
-    </body>
+    <footer>
+        <?php
+        if (isset($prihlaseni_k_databazi_zprava)) {
+            echo $prihlaseni_k_databazi_zprava;
+            unset($prihlaseni_k_databazi_zprava);
+        }
+        ?>
+    </footer>
 
-    </html>
+</main>
+</body>
+
+</html>

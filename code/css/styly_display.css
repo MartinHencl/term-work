@@ -131,16 +131,20 @@ html {
     section article .form-wrapper .label_checkbox .vybaveni_hodnota_label {
         float: right;
     }
+
     section article .form-wrapper .label_checkbox .vybaveni_hodnota {
         float: right;
         width: 50px;
         margin: 0 0 0 10px;
     }
 
-th, tr, td{
-        border-bottom: 1px solid black;
+    th, tr, td{
+            border-bottom: 1px solid black;
     }
-
+    tr .vybaveni_hodnota {
+        width: 50px;
+        margin: 0 0 0 0px;
+    }
 
     #login-top {
         width: 100%;

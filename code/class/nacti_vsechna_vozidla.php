@@ -7,7 +7,7 @@ if ($stmt = $pdo->prepare($sql)) {
         if ($pocet_radku > 0) {
             for ($i = 0; $i < $pocet_radku; $i++) {
                 $row = $stmt->fetch();
-                $pole_vozidla[$i] = Vozidlo::vytvorVozidlo($row["ID_VOZIDLA"], $row{"JMENO"}, $row{"CENA"}, $row{"PUVODNI_NAJETO"}, $row{"ZNACKA_VOZU_ID_ZNACKA_VOZU"});
+                $pole_vozidla[$i] = Vozidlo::vytvorVozidlo($row["ID_VOZIDLA"], $row["JMENO"], $row["CENA"], $row["PUVODNI_NAJETO"], $row["ZNACKA_VOZU_ID_ZNACKA_VOZU"]);
             }
             unset($i, $row, $stmt, $sql);
         }
