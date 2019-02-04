@@ -67,10 +67,14 @@ require_once("../class/vratVybaveniPodleVozu.php");
 
     <footer>
         <?php
+        /*if (isset($_SESSION["ERROR"])) {
+            echo ($_SESSION["ERROR"] . " | ");
+            unset($_SESSION["ERROR"]);
+        }
         if (isset($prihlaseni_k_databazi_zprava)) {
             echo $prihlaseni_k_databazi_zprava;
             unset($prihlaseni_k_databazi_zprava);
-        }
+        }*/
         ?>
     </footer>
 

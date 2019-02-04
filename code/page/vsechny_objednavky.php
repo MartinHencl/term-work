@@ -116,16 +116,29 @@ require_once ("../class/vratCelkovouCenu.php");
                     ?>
                 </table>
             </fieldset>
+            <?php
+            if (isset($_SESSION["ROLE"]) && ($_SESSION["ROLE"] === "administrator")) {
+            echo ('<form accept - charset = "utf-8" method = "post" >' . "\n");
+                echo ('<button type = "submit" formaction = "../class/exportDoJson.php" > Export do JSON </button >'  . "\n");
+                echo ('<button type = "submit" formaction = "../class/importJson.php" > Import JSON </button >' . "\n");
+            echo ('</form >' . "\n");
+            }
+            ?>
         </article>
 
     </section>
 
     <footer>
         <?php
+/*
+        if (isset($_SESSION["ERROR"])) {
+            echo ($_SESSION["ERROR"] . " | ");
+            unset($_SESSION["ERROR"]);
+        }
         if (isset($prihlaseni_k_databazi_zprava)) {
             echo $prihlaseni_k_databazi_zprava;
             unset($prihlaseni_k_databazi_zprava);
-        }
+        }*/
         ?>
     </footer>
 

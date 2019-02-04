@@ -195,10 +195,10 @@ if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
 
     <footer>
         <?php
-        if (isset($prihlaseni_k_databazi_zprava)) {
+        /*if (isset($prihlaseni_k_databazi_zprava)) {
             echo $prihlaseni_k_databazi_zprava;
             unset($prihlaseni_k_databazi_zprava);
-        }
+        }*/
         ?>
     </footer>
 

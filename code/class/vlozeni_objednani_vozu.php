@@ -38,6 +38,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             } else {
                 $_SESSION["ERROR"] = $_SESSION["ERROR"] . "; Chyba SQL pridavani do Jizdy " . date("Y-m-d-H-i");;
             }
+        } else {
+            $_SESSION["ERROR"] = $_SESSION["ERROR"] . "; Chyba SQL pridavani do Jizdy " . date("Y-m-d-H-i");;
         }
     }
 }

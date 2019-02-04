@@ -46,7 +46,7 @@ echo('<article>' . "\n");
             echo('</div>' . "\n");
         if (isset($_SESSION["ROLE"]) && $_SESSION["ROLE"] === "administrator") {
         echo('<div class="form-group">' . "\n");
-            echo('<input type="submit" formaction="../page/upravit_vozidlo.php" value="Upravit vůz">');
+            //echo('<input type="submit" formaction="../page/upravit_vozidlo.php" value="Upravit vůz">');
             echo('<input type="submit" formaction="../class/smazat_vozidlo.php" value="Smazat vozidlo">' . "\n");
             echo('</div>' . "\n");
         }

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 
@@ -17,33 +17,30 @@
 
     <div id="login-top">
         <?php
-            require_once ("./stejne_casti/login_top.php");
+        require_once("./stejne_casti/login_top.php");
         ?>
     </div>
     <header>
-        <div class="container" >
-            <img src="../image/mercedes-benz-c-class-vehicle-model-banner.jpg" alt="Banner auto"  >    <!--  https://www.mercedes-benz-newmarket.ca/about-us/mercedes-benz-c-class-vehicle-model-banner/ -->
+        <div class="container">
+            <img src="../image/mercedes-benz-c-class-vehicle-model-banner.jpg" alt="Banner auto">    <!--  https://www.mercedes-benz-newmarket.ca/about-us/mercedes-benz-c-class-vehicle-model-banner/ -->
         </div>
     </header>
 
     <nav>
         <?php
-            require_once("./stejne_casti/menu.php");
+        require_once("./stejne_casti/menu.php");
         ?>
     </nav>
 
     <section>
 
         <article>
-            <?php
-            //phpinfo();
-            echo BASE_URL . "<br>";
-            echo CURRENT_URL . "<br>";
-            echo ROOT_PATH . "<br>";
-            echo DOC_ROOT . "<br>";
-            echo PDF_UPLOADS . "<br>";
-            ?>
-
+            <div class="form-wrapper">
+                <h2>Vítejte na stránkách autopůjčovny. Ceny vozů začínají již od 250,- Kč na den!</h2>
+                <p>Jsme společnost, která nabízí levný a dostupný pronájem vozů všech kategorií.</p>
+                <p>Působíme ve městěch Mladá Boleslav, Liberec, Česká Lípa, Jičín a Praha. </p>
+                <p>Máme co nabídnout! Působíme ve městěch Mladá Boleslav, Liberec, Česká Lípa, Jičín a Praha. </p>
+            </div>
         </article>
 
         <article>
@@ -53,10 +50,10 @@
 
     <footer>
         <?php
-            if (isset($prihlaseni_k_databazi_zprava)) {
-                echo $prihlaseni_k_databazi_zprava;
-                unset($prihlaseni_k_databazi_zprava);
-            }
+        /*if (isset($prihlaseni_k_databazi_zprava)) {
+            echo $prihlaseni_k_databazi_zprava;
+            unset($prihlaseni_k_databazi_zprava);
+        }*/
         ?>
     </footer>
 

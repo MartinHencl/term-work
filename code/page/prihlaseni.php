@@ -151,10 +151,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <footer>
         <?php
-        if (isset($prihlaseni_k_databazi_zprava)) {
+        /*if (isset($prihlaseni_k_databazi_zprava)) {
             echo $prihlaseni_k_databazi_zprava;
             unset($prihlaseni_k_databazi_zprava);
-        }
+        }*/
         ?>
     </footer>
 

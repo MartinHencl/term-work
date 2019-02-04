@@ -1,5 +1,8 @@
 <?php
 
+
+/*****************************************/
+// pouziti = $param_stav = StavObjednavky::getObjednano()->getText();
 final class StavObjednavky {
     private static $objednano, $schvaleno, $vyzvednuto, $vraceno;
     private $text;
