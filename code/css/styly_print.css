@@ -1,6 +1,41 @@
   /* CSS pro tisk - vypnute zobrazeni nepotrebnych oddilu webu */
-  
-  nav, aside, header, footer {
-     display: none;
-     
+  @media print {
+      nav {
+          display: none !important;
       }
+
+      .no-print {
+          display: none !important;
+      }
+
+      main,
+      main ul,
+      main ul li {
+          text-align: left;
+          font-size: 12px;
+      }
+
+      main{
+          margin: 0px;
+          padding: 0px;
+      }
+
+      main ul:first-child{
+          margin: 0px;
+          padding: 0px;
+      }
+
+      main ul:first-child li:first-child{
+          margin: 0px;
+          padding: 0px;
+      }
+
+      header {
+          display: none !important;
+      }
+
+      footer {
+          display: none !important;
+      }
+
+  }

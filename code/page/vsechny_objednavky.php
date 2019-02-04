@@ -121,6 +121,7 @@ require_once ("../class/vratCelkovouCenu.php");
             echo ('<form accept - charset = "utf-8" method = "post" >' . "\n");
                 echo ('<button type = "submit" formaction = "../class/exportDoJson.php" > Export do JSON </button >'  . "\n");
                 echo ('<button type = "submit" formaction = "../class/importJson.php" > Import JSON </button >' . "\n");
+                echo ('<button type = "submit" formaction = "../class/print.php" > Print </button >' . "\n");
             echo ('</form >' . "\n");
             }
             ?>

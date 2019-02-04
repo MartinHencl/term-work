@@ -18,31 +18,141 @@
      // border-radius: 30px;                    
      // box-shadow: 0px 0px 20px gray;          
 
-     }   
+     }
 
     header {
-      padding: 20px;
-      text-align: center;
-      border-bottom: solid 1px gray;
-    
-     }
-     
-    nav {
-     // float: left;
-     padding: 0px;
-     margin: 0px;
-     text-align: center;
+        padding: 50px;
+        text-align: center;
+        border-bottom: solid 1px gray;
+    }
 
-     }
+    header .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    header .container img {
+        width: 100%;
+        height: auto;
+    }
+
+    nav {
+        background-color: #61ACC1;;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin: 0px;
+        text-align: center;
+    }
+
+    nav a {
+        color: #000000;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    nav a:hover {
+        background-color: white;
+    }
+    nav a:active{
+        background-color: white;
+    }
 
     section {
-     // margin-left: 180px;
-     clear: both;   
-     padding: 20px;
-     border-top: solid 1px gray;
-     text-align: left;
+        margin: 40px;
+        margin-bottom: 80px;
+        border: solid 1px gray;
+        text-align: justify;
 
-     }
+    }
+
+    section h2 {
+        padding: 0 0 0 30px;
+    }
+
+    section article .form-wrapper {
+        border: solid 1px black;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    section article .form-wrapper .form-group {
+        margin-bottom: 15px;
+    }
+
+    section article .form-wrapper .form-control {
+        display: block;
+    }
+
+    section article .form-wrapper .help-block {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        color: #CC0000;
+    }
+
+    section article .form-wrapper input {
+        width: 200px;
+    }
+
+    section article .form-wrapper select {
+        width: 200px;
+    }
+
+    section article .form-wrapper .form-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    section article .form-wrapper .label_checkbox {
+        border:1px solid #ccc;
+        padding:5px;
+        display:block;
+        width: max-content;
+        min-width: 300px;
+        max-width: 400px;
+    }
+
+    section article .form-wrapper .label_checkbox:hover {
+        background:#eee;
+        cursor:pointer;
+    }
+
+    section article .form-wrapper .label_checkbox input {
+        width: 15px;
+        float: left;
+    }
+
+    section article .form-wrapper .label_checkbox .vybaveni_hodnota_label {
+        float: right;
+    }
+
+    section article .form-wrapper .label_checkbox .vybaveni_hodnota {
+        float: right;
+        width: 50px;
+        margin: 0 0 0 10px;
+    }
+
+    th, tr, td{
+        border-bottom: 1px solid black;
+    }
+    tr .vybaveni_hodnota {
+        width: 50px;
+        margin: 0 0 0 0px;
+    }
+
+    #login-top {
+        width: 100%;
+        text-align: right;
+    }
+    #login-top a {
+        color: #000000;
+        padding-right: 50px;
+        font-size: 17px;
+    }
+
 
     footer {
      text-align: center;
@@ -68,59 +178,3 @@
     {
       opacity: 0.4;
      }
-
-  /* Menu */
-  
-  ul#mainMenu {
-    color:000000;
-		padding:0;
-		margin:0;
-		list-style-type:none;
-	}
-  
-  ul#mainMenu ul {
-    color:000000;
-		padding:0;
-		margin:0;
-		list-style-type:none;
-    
-	}
-	
-	ul#mainMenu li {
-		float:left; 
-		padding:10px;
-		width:60px;
-    
-	}
-	
-	ul#mainMenu a {
-	  color:black;
-    display:block;
-    text-decoration:none;
-    
- 	}
-		
-	ul#mainMenu ul a:hover {
-	  color:blue;
-    text-decoration:underline;
- 	}
-	
-	ul#mainMenu ul {
-  	margin-top:5px;
-    margin-left:-3px;
-		position:absolute;
-		visibility:hidden;
-    background-color:#dddddd;
-    
-	}
-	
-	ul#mainMenu li:hover ul {
-		visibility:visible;
-    
-	}
-	
-	ul#mainMenu li li {
-		float:none;
-    padding:3px;
-    
- 	}
